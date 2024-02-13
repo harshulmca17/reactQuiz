@@ -241,6 +241,77 @@ progress {
   }
 }
 
+/* Mobile Styles */
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 1.6rem;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .app-header {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  .options {
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    font-size: 1.8rem;
+  }
+
+  .timer {
+    float: none;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 601px) {
+  body {
+    padding: 3.2rem;
+  }
+
+  .main {
+    width: 50rem;
+  }
+
+  .app-header {
+    width: 66rem;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: 5.6rem;
+  }
+
+  .options {
+    margin-bottom: 3.2rem;
+  }
+
+  .btn {
+    font-size: 2rem;
+  }
+
+  .timer {
+    float: left;
+    margin-bottom: 0;
+  }
+}
+
+
 /* ********** */
 /* First counter example */
 .counter {
