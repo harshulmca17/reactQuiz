@@ -27,7 +27,7 @@ function DateCounter() {
     dispatchCount({ type: "dec" });
     // setCount((count) => count - 1);
     // setCount((count) => count - step);
-  };
+  }; 
 
   const inc = function () {
     dispatchCount({ type: "inc" });
