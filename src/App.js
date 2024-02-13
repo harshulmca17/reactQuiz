@@ -102,7 +102,7 @@ export default function App() {
   ] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch("http://localhost:9000/questions")
+    fetch("https://restful-api-vercel-pi.vercel.app/questions")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataRecieved", payload: data }))
       .catch((err) => dispatch({ type: "", payload: err.message }));
