@@ -8,7 +8,7 @@ import Question from "./question.jsx";
 import Progress from "./progress.jsx";
 import FinishedScreen from "./finishedScreen.jsx";
 
-const SECS_PER_QUESTIONS = 40;
+const SECS_PER_QUESTIONS = 4000;
 const initialState = {
   questions: [],
   status: "loading",
@@ -102,7 +102,7 @@ export default function App() {
   ] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch("http://localhost:9000/questions")
+    fetch("https://restful-api-vercel-pi.vercel.app/questions")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataRecieved", payload: data }))
       .catch((err) => dispatch({ type: "", payload: err.message }));

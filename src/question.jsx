@@ -7,10 +7,10 @@ export default function Question({ questions, dispatch, index, answer ,secondsRe
     <div>
       <h4>{question.question}</h4>
       <Options question={question} answer={answer} dispatch={dispatch} />
-
+      <Timer dispatch={dispatch} secondsRemainig={secondsRemainig} />
+          
       {index < questions.length - 1 && (
         <>
-          <Timer dispatch={dispatch} secondsRemainig={secondsRemainig} />
           <button
             className="btn btn-ui"
             onClick={() => {
