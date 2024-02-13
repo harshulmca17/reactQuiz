@@ -8,7 +8,7 @@ import Question from "./question.jsx";
 import Progress from "./progress.jsx";
 import FinishedScreen from "./finishedScreen.jsx";
 
-const SECS_PER_QUESTIONS = 4000;
+const SECS_PER_QUESTIONS = 40;
 const initialState = {
   questions: [],
   status: "loading",
@@ -18,22 +18,41 @@ const initialState = {
   totalPoints: 0,
   secondsRemainig: 0,
 };
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex > 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
 function reducer(state, action) {
   switch (action.type) {
     case "dataRecieved":
       let totalPoints = 0;
 
       let questions = action.payload;
+      questions = shuffle(questions)
+      questions = questions.slice(0,16);
       questions.map((ele) => {
         totalPoints += ele.points;
       });
 
       return {
         ...state,
-        questions: action.payload,
+        questions: questions,
         status: "ready",
         totalPoints: totalPoints,
-        secondsRemainig : action.payload.length * SECS_PER_QUESTIONS
+        secondsRemainig : questions.length * SECS_PER_QUESTIONS
       };
     case "payload":
       return {
